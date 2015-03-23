@@ -1,0 +1,19 @@
+<section data-ng-controller="PointsOfInterestsController" data-ng-init="find()">
+    <div class="page-header">
+        <h1>Points of interests</h1>
+    </div>
+    <div class="list-group">
+        <a data-ng-repeat="pointsOfInterest in pointsOfInterests" data-ng-href="/#!/points-of-interests/{{pointsOfInterest._id}}" class="list-group-item">
+			<small class="list-group-item-text">
+				Posted on
+				<span data-ng-bind="pointsOfInterest.created | date:'medium'"></span>
+				by
+				<span data-ng-bind="pointsOfInterest.user.displayName"></span>
+			</small>
+			<h4 class="list-group-item-heading" data-ng-bind="pointsOfInterest.name"></h4>
+        </a>
+    </div>
+    <div class="alert alert-warning text-center" data-ng-hide="!pointsOfInterests.$resolved || pointsOfInterests.length">
+    	No Points of interests yet, why don't you <a href="/#!/points-of-interests/create">create one</a>?
+    </div>
+</section>

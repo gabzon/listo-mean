@@ -1,0 +1,118 @@
+<section data-ng-controller="TravelAgenciesController" data-ng-init="findOne()">
+   <div class="page-header">
+      <h1>Edit Travel agency</h1>
+   </div>
+   <div class="col-md-12">
+      <form data-ng-submit="update()" novalidate>
+         <fieldset>
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <div class="input-group">
+                        <span class="input-group-addon">Name</span>
+                        <input type="text" data-ng-model="travelAgency.name" id="name" class="form-control" placeholder="Name" required>
+                     </div>
+                  </div><!-- .form-group -->
+                  <div class="form-group">
+                     <textarea type="text" data-ng-model="travelAgency.description" id="description" class="form-control" placeholder="Description" rows="13" cols="40" required></textarea>
+                  </div><!-- .form-group -->
+               </div><!-- .col-md-6 -->
+               <div class="col-md-6">
+
+                  <!-- Country & Zip code -->
+                  <div class="row">
+                     <div class="col-md-9">
+                        <div class="form-group">
+                           <div class="input-group">
+                              <span class="input-group-addon">Country</span>
+                              <input type="text" data-ng-model="travelAgency.country" id="country" class="form-control" placeholder="ex: Switzerland">
+                           </div>
+                        </div><!-- .form-group -->
+                     </div><!-- .col-md-9 -->
+                     <div class="col-md-3">
+                        <div class="input-group">
+                           <span class="input-group-addon">ZIP</span>
+                           <input type="text" data-ng-model="travelAgency.postalCode" id="postalCode" class="form-control" placeholder="Zip Code">
+                        </div>
+                     </div><!-- .col-md-3 -->
+                  </div><!-- .row -->
+
+                  <!-- City & State -->
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <div class="input-group">
+                              <span class="input-group-addon">City</span>
+                              <input type="text" data-ng-model="travelAgency.city" id="city" class="form-control" placeholder="Lausanne">
+                           </div>
+                        </div>
+                     </div><!-- .col-md-6 -->
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <div class="input-group">
+                              <span class="input-group-addon">State</span>
+                              <input type="text" data-ng-model="travelAgency.state" id="state" class="form-control" placeholder="ex: Vaud">
+                           </div>
+                        </div>
+                     </div><!-- .col-md-6 -->
+                  </div> <!-- .row -->
+
+                  <!-- Address -->
+                  <div class="form-group">
+                     <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+                        <input type="text" data-ng-model="travelAgency.address" id="address" class="form-control" placeholder="Address">
+                     </div>
+                  </div><!-- .form-group -->
+
+                  <!-- Phone & Fax -->
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-phone-alt"></i></span>
+                              <input type="text" data-ng-model="travelAgency.phone" id="phone" class="form-control" placeholder="+41 21 123 4356">
+                           </div>
+                        </div><!-- .form-group -->
+                     </div><!-- .col-md-6 -->
+                     <div class="col-md-6">
+                        <div class="form-group">
+                           <div class="input-group">
+                              <span class="input-group-addon"><i class="glyphicon glyphicon-print"></i></span>
+                              <input type="text" data-ng-model="travelAgency.fax" id="fax" class="form-control" placeholder="+41 21 123 4357">
+                           </div>
+                        </div><!-- .form-group -->
+                     </div><!-- .col-md-6 -->
+                  </div><!-- .row -->
+
+
+                  <!-- Email -->
+                  <div class="form-group">
+                     <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input type="text" data-ng-model="travelAgency.email" id="email" class="form-control" placeholder="info@sevinci.com">
+                     </div>
+                  </div><!-- .form-group -->
+
+                  <!-- Website -->
+                  <div class="form-group">
+                     <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                        <input type="text" data-ng-model="travelAgency.website" id="website" class="form-control" placeholder="http://www.sevinci.com">
+                     </div>
+                  </div><!-- .form-group -->
+
+               </div> <!-- .col-md-6 -->
+               <md-button class="md-raised md-primary" ng-file-select>Upload using model</md-button>
+            </div> <!-- .row -->
+
+            <div class="form-group">
+               <input type="submit" value="Update" class="btn btn-default">
+            </div>
+            <div data-ng-show="error" class="text-danger">
+               <strong data-ng-bind="error"></strong>
+            </div>
+         </fieldset>
+      </form>
+   </div>
+</section>
