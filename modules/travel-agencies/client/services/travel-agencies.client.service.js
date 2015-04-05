@@ -7,7 +7,7 @@ angular.module('travel-agencies').factory('TravelAgencies', ['$resource',
 		{ travelAgencyId: '@_id'},
 		{
 			update: {
-				url: 'api/travel-agencies/:travelAgencyId/logo/upload'
+				url: 'api/travel-agencies/:travelAgencyId/logo/upload',
 				method: 'POST'
 			}
 		});
