@@ -1,53 +1,85 @@
 <section data-ng-controller="TravelAgenciesController" data-ng-init="findOne()">
-	<div class="page-header">
-		<h1 data-ng-bind="travelAgency.name"></h1>
+	<div class="ui basic segment">
 	</div>
-	<img src="" alt="">
-	<h1>{{travelAgency.logoImageUrl}}</h1>
-	<h2>{{travelAgency.name}}</h2>
-	<section id="travelAgencyContent">
-		<div class="row">
-			<div class="col-md-9">
-				{{travelAgency.description}}
-			</div>
-			<div class="col-md-3">
-				<div class="list-group">
-					<li class="list-group-item">
-						<i class="home icon"></i>&nbsp;{{travelAgency.address}}
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{travelAgency.postalCode}},{{travelAgency.city}}<br>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{travelAgency.country}}
-					</li>
-					<li class="list-group-item"><i class="call icon"></i>&nbsp;{{travelAgency.phone}}</li>
-					<li class="list-group-item"><i class="print icon"></i>&nbsp;{{travelAgency.fax}}</li>
-					<li class="list-group-item"><i class="envelope icon"></i>&nbsp;{{travelAgency.email}}</li>
-					<li class="list-group-item">
-						<a href="{{travelAgency.website}}" target="_blank">
-							<i class="globe icon"></i>&nbsp;{{travelAgency.website}}
-						</a>
-					</li>
-					<li data-ui-sref-active="active" class="list-group-item">
-						<a data-ui-sref="logo">Logo</a>
-					</li>
+
+	<div class="ui basic segment">
+		<div class="ui page grid">
+			<div class="column">
+				<div class="page-header">
+					<h1 data-ng-bind="travelAgency.name"></h1>
 				</div>
+				<h1>{{travelAgency.logoImageUrl}}</h1>
+				<section id="travelAgencyContent">
+
+					<div class="ui two column grid stackable">
+						<div class="twelve wide column">
+							{{travelAgency.description}}
+						</div>
+						<div class="four wide column">
+							<div class="ui divided list">
+								<div class="item">
+									<i class="home icon" valign="top"></i>
+									<div class="content">
+										<a class="header">
+											{{travelAgency.address}}
+											{{travelAgency.postalCode}},{{travelAgency.city}}<br>
+											{{travelAgency.country}}
+										</a>
+									</div>
+								</div>
+								<div class="item">
+									<i class="call icon"></i>
+									<div class="content">
+										<a class="header">&nbsp;{{travelAgency.phone}}</a>
+									</div>
+								</div>
+								<div class="item">
+									<i class="print icon"></i>
+									<div class="content">
+										<a class="header">{{travelAgency.fax}}</a>
+									</div>
+								</div>
+								<div class="item">
+									<i class="envelope icon"></i>
+									<div class="content">
+										<a class="header" href="mailto:{{travelAgency.email}}">
+											{{travelAgency.email}}
+										</a>
+									</div>
+								</div>
+								<div class="item">
+									<i class="globe icon"></i>
+									<div class="content">
+										<a class="header" href="{{travelAgency.website}}" target="_blank">&nbsp;{{travelAgency.website}}</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+						<div data-ng-show="authentication.user._id == travelAgency.user._id">
+							<a class="ui purple button" href="/#!/travel-agencies/{{travelAgency._id}}/edit">
+								<i class="edit icon"></i> Edit
+							</a>
+							<a class="ui red button" data-ng-click="remove();">
+								<i class="trash icon"></i> Delete
+							</a>
+						</div>
+
+						<br>
 
 
+					</div>
+				</section>
+				<br>
+				<small>
+
+					Created on
+					<span data-ng-bind="travelAgency.created | date:'mediumDate'"></span>
+					by
+					<span data-ng-bind="travelAgency.user.displayName"></span>
+
+				</small>
 			</div>
 		</div>
-	</section>
-	<div class="pull-right" data-ng-show="authentication.user._id == travelAgency.user._id">
-		<a class="btn btn-primary" href="/#!/travel-agencies/{{travelAgency._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
 	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="travelAgency.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="travelAgency.user.displayName"></span>
-		</em>
-	</small>
 </section>

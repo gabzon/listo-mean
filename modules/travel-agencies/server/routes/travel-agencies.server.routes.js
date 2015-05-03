@@ -9,14 +9,15 @@ module.exports = function(app) {
 		.get(travelAgencies.list).all(travelAgenciesPolicy.isAllowed)
 		.post(travelAgencies.create);
 
+	 app.route('/api/travel-agencies/count')
+	 	.get(travelAgencies.count).all(travelAgenciesPolicy.isAllowed);
+
 	app.route('/api/travel-agencies/:travelAgencyId').all(travelAgenciesPolicy.isAllowed)
 		.get(travelAgencies.read)
 		.put(travelAgencies.update)
 		.delete(travelAgencies.delete);
 
-	app.route('/api/travel-agencies/:travelAgencyId/logo/upload').all(travelAgenciesPolicy.isAllowed)
-		.post(travelAgencies.updateLogo);
-
 	// Finish by binding the Travel agency middleware
 	app.param('travelAgencyId', travelAgencies.travelAgencyByID);
+
 };

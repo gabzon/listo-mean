@@ -1,33 +1,42 @@
 .content {
-	margin-top: 50px;
+  margin-top: 50px;
 }
-.undecorated-link:hover {
-	text-decoration: none;
+body,
+p,
+a {
+  font-family: 'Montserrat', 'Helvetica', sans-serif;
+  font-weight: 400;
 }
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-	display: none !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', 'Helvetica', sans-serif;
+  font-weight: 700 ;
 }
-.ng-invalid.ng-dirty{
-	border-color:#FA787E;
+.brand-name {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 1.25em;
 }
-.ng-valid.ng-dirty{
-	border-color:#78FA89;
+.main-header md-toolbar.md-default-theme {
+  background-color: white !important;
 }
-
-.header-profile-image {
-	opacity: 0.8;
-	height: 28px;
-	width: 28px;
-	border-radius: 50%;
-	margin-right: 5px;
+.main-header md-toolbar.md-default-theme .md-button {
+  color: black;
+  text-transform: capitalize;
 }
-
-.open  .header-profile-image,
-a:hover .header-profile-image {
-	opacity: 1;
+md-sidenav md-toolbar .md-toolbar-tools {
+  color: white;
 }
-
-.user-header-dropdown-toggle {
-	padding-top: 11px !important;
-	padding-bottom: 11px !important;
+md-sidenav md-list {
+  padding-left: 10px;
+}
+md-sidenav md-list button.md-button.md-default-theme {
+  width: 100%;
+  text-transform: Capitalize;
+  text-align: left;
 }

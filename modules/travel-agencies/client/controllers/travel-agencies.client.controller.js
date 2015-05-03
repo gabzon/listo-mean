@@ -1,9 +1,33 @@
 'use strict';
 
 // Travel agencies controller
-angular.module('travel-agencies').controller('TravelAgenciesController', ['$scope', '$stateParams', '$location', 'Authentication', 'TravelAgencies',
-function($scope, $stateParams, $location, Authentication, TravelAgencies, FileUploader ) {
+angular.module('travel-agencies').controller('TravelAgenciesController', ['$scope', '$stateParams', '$location', 'Authentication', 'TravelAgencies', 'CountryList',
+function($scope, $stateParams, $location, Authentication, TravelAgencies, CountryList) {
 	$scope.authentication = Authentication;
+
+	//var self = this;
+
+	//$scope.searchText    = null;
+
+	CountryList.query(function(data){
+		$scope.countryList = data;
+	});
+
+	// function filterByName(query) {
+	// 	var lowercaseQuery = angular.lowercase(query);
+	//
+	// 	return function filterFn(country) {
+	// 		//alert(country.name);
+	// 		return (country.name.indexOf(lowercaseQuery) === 0);
+	// 	};
+	// };
+	//
+	// function querySearch (query) {
+	// 	var results = query ? $scope.countryList.filter( filterByName(query) ) : [];
+	// 	return results;
+	// };
+	//
+	// $scope.querySearch = querySearch;
 
 	// Create new Travel agency
 	$scope.create = function() {
@@ -20,7 +44,14 @@ function($scope, $stateParams, $location, Authentication, TravelAgencies, FileUp
 			phone: this.phone,
 			fax: this.fax,
 			email: this.email,
-			website: this.website
+			website: this.website,
+			yellowPages: this.yellowPages,
+			companyRegisterNumber: this.companyRegisterNumber,
+			companyRegisterWebsite: this.companyRegisterWebsite,
+			creationDate: this.creationDate,
+			bankruptDate: this.bankruptDate,
+			bankrupty: this.bankrupty,
+			//travelInsurance: this.travelInsurance.hasInsurance,
 		});
 
 		// Redirect after save
@@ -52,7 +83,7 @@ function($scope, $stateParams, $location, Authentication, TravelAgencies, FileUp
 
 	// Update existing Travel agency
 	$scope.update = function() {
-		var travelAgency = $scope.travelAgency ;
+		var travelAgency = $scope.travelAgency;
 
 		travelAgency.$update(function() {
 			$location.path('travel-agencies/' + travelAgency._id);
@@ -64,6 +95,7 @@ function($scope, $stateParams, $location, Authentication, TravelAgencies, FileUp
 	// Find a list of Travel agencies
 	$scope.find = function() {
 		$scope.travelAgencies = TravelAgencies.query();
+		//$scope.count = Count.query;
 	};
 
 	// Find existing Travel agency
@@ -72,5 +104,5 @@ function($scope, $stateParams, $location, Authentication, TravelAgencies, FileUp
 			travelAgencyId: $stateParams.travelAgencyId
 		});
 	};
-}
-]);
+
+}]);

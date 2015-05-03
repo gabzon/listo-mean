@@ -1,0 +1,89 @@
+<div ng-controller="HeaderController">
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+        <md-toolbar layout="row">
+            <h1 class="md-toolbar-tools">Main Menu</h1>
+            <md-button ng-click="close()" aria-label="Sidebar close button">
+                <i class="remove circle icon"></i>
+            </md-button>
+        </md-toolbar>
+        <div layout="column">
+            <md-list>
+                <md-list-item>
+                    <h2><i class="options icon"></i>Options</h2>
+                </md-list-item>
+                <md-list-item>
+                    <md-button data-ng-if="menu.shouldRender(authentication.user);" data-ui-sref="points-of-interests.list" data-ui-sref-active="active">
+                        <i class="marker icon"></i>Points of interest
+                    </md-button>
+                </md-list-item>
+
+                <md-list-item>
+                    <md-button data-ng-if="menu.shouldRender(authentication.user);" data-ui-sref="articles.list" data-ui-sref-active="active">
+                        <i class="file text icon"></i>Articles
+                    </md-button>
+
+                </md-list-item>
+
+                <md-list-item>
+                    <md-button data-ng-if="menu.shouldRender(authentication.user);" data-ui-sref="travel-agencies.list" data-ui-sref-active="active">
+                        <i class="suitcase icon"></i>Travel Agencies
+                    </md-button>
+                </md-list-item>
+
+                <md-list-item>
+                    <md-button data-ng-if="menu.shouldRender(authentication.user);" data-ui-sref="places.list" data-ui-sref-active="active">
+                        <i class="world icon"></i>
+                        Places
+                    </md-button>
+                </md-list-item>
+
+                <md-list-item>
+                    <md-button data-ui-sref="voyages.list" data-ui-sref-active="active">
+                        <i class="plane icon"></i>
+                        Voyages
+                    </md-button>
+                </md-list-item>
+            </md-list>
+
+            <md-divider></md-divider>
+
+            <md-list>
+                <md-list-item>
+                    <h2><i class="user icon"></i>Profile</h2>
+                </md-list-item>
+
+                <md-list-item>
+                    <md-button data-ui-sref="settings.profile" data-ui-sref-active="active">
+                        <i class="edit icon"></i> Edit Profile
+                    </md-button>
+                </md-list-item>
+
+                <md-list-item>
+                    <md-button data-ui-sref="settings.picture" data-ui-sref-active="active">
+                        <i class="file image outline icon"></i> Change Profile Picture
+                    </md-button>
+                </md-list-item>
+
+                <md-list-item>
+                    <md-button data-ui-sref="settings.password" data-ui-sref-active="active" data-ng-show="authentication.user.provider === 'local'">
+                        <i class="lock icon"></i>Change Password
+                    </md-button>
+                </md-list-item>
+
+                <md-list-item>
+                    <md-button data-ui-sref="settings.accounts" data-ui-sref-active="active">
+                        <i class="comments outline icon"></i> Manage Social Accounts
+                    </md-button>
+                </md-list-item>
+            </md-list>
+            <md-divider></md-divider>
+            <md-list>
+                <md-list-item>
+                    <md-button href="/api/auth/signout" target="_self">
+                        <i class="sign out icon"> </i>Signout
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </div>
+    </md-sidenav>
+</div>

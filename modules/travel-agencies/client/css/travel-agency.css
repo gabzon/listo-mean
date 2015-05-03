@@ -1,0 +1,25 @@
+.angular-google-map-container {
+  height: 400px;
+}
+.travel-agency-list md-list h3 {
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+.travel-agency-list md-list md-list-item.md-no-proxy,
+.travel-agency-list md-list md-list-item .md-no-style {
+  padding: 0;
+}
+.travel-agency-list md-list a.md-button.md-default-theme {
+  text-align: left;
+  width: 100%;
+  text-transform: capitalize;
+  margin: 0;
+  padding: 0.5em 0 0 0.5em;
+}
+.travel-agency-list md-list a.md-button.md-default-theme:hover {
+  color: black;
+}
+md-input-container {
+  padding-top: 1em;
+  padding-bottom: 0;
+}
