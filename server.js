@@ -11,7 +11,7 @@ var config = require('./config/config'),
 mongoose.connect(function (db) {
 	// Initialize express
 	var app = express.init(db);
-
+	
 	// Start the app by listening on <port>
 	app.listen(config.port);
 

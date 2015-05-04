@@ -11,7 +11,8 @@ function($scope, $stateParams, $location, Authentication, TravelAgencies, Countr
 
 	CountryList.query(function(data){
 		$scope.countryList = data;
-	});
+	});	
+
 
 	// function filterByName(query) {
 	// 	var lowercaseQuery = angular.lowercase(query);

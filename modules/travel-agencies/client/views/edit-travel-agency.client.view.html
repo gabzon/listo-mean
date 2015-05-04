@@ -1,6 +1,6 @@
 <section data-ng-controller="TravelAgenciesController" data-ng-init="findOne()">
     <md-toolbar class="md-medium-tall md-primary" md-scroll-shrink>
-        <span flex></span>
+           <span flex></span>
         <div class="ui page grid">
             <div class="column">
                 <h2 class="md-toolbar-tools md-toolbar-tools-bottom">Edit Travel agency</h2>
@@ -8,8 +8,7 @@
         </div>
     </md-toolbar>
     <br>
-
-    <div class="ui page grid" >
+    <div class="ui page grid">
         <div class="column">
             <br>
             <h1>Basic Information</h1>
@@ -20,27 +19,22 @@
                             <label>Travel Agency Name</label>
                             <input type="text" data-ng-model="travelAgency.name" id="name" required>
                         </md-input-container>
-
                         <md-input-container flex>
                             <label>Description</label>
                             <textarea data-ng-model="travelAgency.description" id="description" rows=4 md-maxlength="300"></textarea>
                         </md-input-container>
-
                         <md-input-container>
                             <label>Yellow Pages</label>
                             <input type="text" data-ng-model="travelAgency.yellowPages">
                         </md-input-container>
-
                         <md-input-container>
                             <label>Company Register Number</label>
                             <input type="text" data-ng-model="travelAgency.companyRegisterNumber">
                         </md-input-container>
-
                         <md-input-container>
                             <label>Company Register Website</label>
                             <input type="text" data-ng-model="travelAgency.companyRegisterWebsite">
                         </md-input-container>
-
                         <div class="ui three column grid">
                             <div class="column">
                                 <md-input-container>
@@ -55,9 +49,7 @@
                                 </md-input-container>
                             </div>
                             <div class="column">
-                                <md-checkbox md-no-ink aria-label="Checkbox No Ink" data-ng-model="travelAgency.bankrupty">
-                                    bankrupty
-                                </md-checkbox>
+                                <md-checkbox md-no-ink aria-label="Checkbox No Ink" data-ng-model="travelAgency.bankrupty">bankrupty</md-checkbox>
                             </div>
                         </div>
                     </div>
@@ -67,8 +59,8 @@
                                 <md-autocomplete md-items="item in countryList" md-item-text="item.name" md-floating-label="Country" data-ng-model="travelAgency.country">
                                     <span md-highlight-text="searchText">{{item.name}}</span>
                                 </md-autocomplete>
-
-                                <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in querySearch(searchText)" md-item-text="item.name" md-floating-label="Country">
+                                <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in querySearch(searchText)"
+                                md-item-text="item.name" md-floating-label="Country">
                                     <md-autocomplete-wrap role="listbox">
                                         <md-input-container ng-if="floatingLabel">
                                             <label>Country</label>
@@ -77,218 +69,216 @@
                                         <span md-highlight-text="searchText">{{item.name}}</span>
                                     </md-autocomplete-wrap>
                                 </md-autocomplete>
+                            </div>
+                            <div class="four wide column">
+                                <md-input-container>
+                                    <label>Postal Code</label>
+                                    <input type="text" data-ng-model="travelAgency.postalCode">
+                                </md-input-container>
+                            </div>
+                            <!-- City & State -->
+                            <div class="column">
+                                <md-input-container>
+                                    <label>City</label>
+                                    <input type="text" data-ng-model="travelAgency.city" id="country">
+                                </md-input-container>
+                            </div>
+                            <div class="column">
+                                <md-input-container>
+                                    <label>State</label>
+                                    <input type="text" data-ng-model="travelAgency.state">
+                                </md-input-container>
+                            </div>
                         </div>
-                        <div class="four wide column">
-                            <md-input-container>
-                                <label>Postal Code</label>
-                                <input type="text" data-ng-model="travelAgency.postalCode">
-                            </md-input-container>
+                        <!-- Address -->
+                        <md-input-container>
+                            <label>
+                                <i class="home icon"></i>Address</label>
+                            <input type="text" data-ng-model="travelAgency.address" id="address">
+                        </md-input-container>
+                        <!-- Phone & Fax -->
+                        <div class="ui two column grid">
+                            <div class="column">
+                                <md-input-container>
+                                    <label>
+                                        <i class="call icon"></i>Phone</label>
+                                    <input type="text" data-ng-model="travelAgency.phone" id="phone">
+                                </md-input-container>
+                            </div>
+                            <div class="column">
+                                <md-input-container>
+                                    <label>
+                                        <i class="print icon"></i>Fax</label>
+                                    <input type="text" data-ng-model="travelAgency.fax" id="fax">
+                                </md-input-container>
+                            </div>
                         </div>
-
-                        <!-- City & State -->
-                        <div class="column">
-                            <md-input-container>
-                                <label>City</label>
-                                <input type="text" data-ng-model="travelAgency.city" id="country">
-                            </md-input-container>
-                        </div>
-                        <div class="column">
-                            <md-input-container>
-                                <label>State</label>
-                                <input type="text" data-ng-model="travelAgency.state">
-                            </md-input-container>
-                        </div>
-                    </div>
-
-                    <!-- Address -->
-                    <md-input-container>
-                        <label><i class="home icon"></i>Address</label>
-                        <input type="text" data-ng-model="travelAgency.address" id="address">
-                    </md-input-container>
-
-                    <!-- Phone & Fax -->
-                    <div class="ui two column grid">
-                        <div class="column">
-                            <md-input-container>
-                                <label><i class="call icon"></i>Phone</label>
-                                <input type="text" data-ng-model="travelAgency.phone" id="phone">
-                            </md-input-container>
-                        </div>
-                        <div class="column">
-                            <md-input-container>
-                                <label><i class="print icon"></i>Fax</label>
-                                <input type="text" data-ng-model="travelAgency.fax" id="fax">
-                            </md-input-container>
-                        </div>
-                    </div>
-
-                    <!-- Email -->
-                    <md-input-container>
-                        <label><i class="envelope icon"></i>Email</label>
-                        <input type="text" data-ng-model="travelAgency.email" id="email">
-                    </md-input-container>
-
-                    <!-- Website -->
-                    <md-input-container>
-                        <label><i class="world icon"></i>Website</label>
-                        <input type="text" data-ng-model="travelAgency.website" id="email">
-                    </md-input-container>
-
-                    <div class="ui two column grid">
-                        <div class="five wide column">
-                            <md-checkbox data-ng-model="travelAgency.travelInsurance.hasInsurance">
-                                Has Insurance
-                            </md-checkbox>
-                        </div>
-                        <div class="eleven wide column">
-                            <md-input-container ng-show="travelAgency.travelInsurance.hasInsurance">
-                                <label>Name</label>
-                                <input type="text" data-ng-model="travelAgency.travelInsurance.name">
-                            </md-input-container>
+                        <!-- Email -->
+                        <md-input-container>
+                            <label>
+                                <i class="envelope icon"></i>Email</label>
+                            <input type="text" data-ng-model="travelAgency.email" id="email">
+                        </md-input-container>
+                        <!-- Website -->
+                        <md-input-container>
+                            <label>
+                                <i class="world icon"></i>Website</label>
+                            <input type="text" data-ng-model="travelAgency.website" id="email">
+                        </md-input-container>
+                        <div class="ui two column grid">
+                            <div class="five wide column">
+                                <md-checkbox data-ng-model="travelAgency.travelInsurance.hasInsurance">Has Insurance</md-checkbox>
+                            </div>
+                            <div class="eleven wide column">
+                                <md-input-container ng-show="travelAgency.travelInsurance.hasInsurance">
+                                    <label>Name</label>
+                                    <input type="text" data-ng-model="travelAgency.travelInsurance.name">
+                                </md-input-container>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div><!-- .ui two column grid stackable -->
-
-            <h1>Specializations</h1>
-            <!-- World Regions -->
-            <md-input-container>
-                <label>World Regions</label>
-                <input type="text" data-ng-model="travelAgency.worldRegions">
-            </md-input-container>
-
-            <!-- Activities -->
-            <md-input-container>
-                <label>Activities</label>
-                <input type="text" data-ng-model="travelAgency.activities">
-            </md-input-container>
-
-            <!-- Type of client -->
-            <md-input-container>
-                <label>Type of clients</label>
-                <input type="text" data-ng-model="travelAgency.clientType">
-            </md-input-container>
-
-            <h1>APIs</h1>
-            <!-- Products API -->
-            <md-input-container>
-                <label>Products API</label>
-                <input type="text" data-ng-model="travelAgency.productsAPI">
-            </md-input-container>
-
-            <!-- Products API -->
-            <md-input-container>
-                <label>About API</label>
-                <input type="text" data-ng-model="travelAgency.aboutAPI">
-            </md-input-container>
-
-            <h1>Comments</h1>
-            <!-- Goal & Notice -->
-            <div class="ui two column grid">
-                <div class="column">
-                    <md-input-container>
-                        <label>Goal</label>
-                        <textarea data-ng-model="travelAgency.goal" id="description" rows=5 md-maxlength="300"></textarea>
-                    </md-input-container>
+                <!-- .ui two column grid stackable -->
+                <h1>Specializations</h1>
+                <!-- World Regions -->
+                <md-input-container>
+                    <label>World Regions</label>
+                    <input type="text" data-ng-model="travelAgency.worldRegions">
+                </md-input-container>
+                <!-- Activities -->
+                <md-input-container>
+                    <label>Activities</label>
+                    <input type="text" data-ng-model="travelAgency.activities">
+                </md-input-container>
+                <!-- Type of client -->
+                <md-input-container>
+                    <label>Type of clients</label>
+                    <input type="text" data-ng-model="travelAgency.clientType">
+                </md-input-container>
+                <h1>APIs</h1>
+                <!-- Products API -->
+                <md-input-container>
+                    <label>Products API</label>
+                    <input type="text" data-ng-model="travelAgency.productsAPI">
+                </md-input-container>
+                <!-- Products API -->
+                <md-input-container>
+                    <label>About API</label>
+                    <input type="text" data-ng-model="travelAgency.aboutAPI">
+                </md-input-container>
+                <h1>Comments</h1>
+                <!-- Goal & Notice -->
+                <div class="ui two column grid">
+                    <div class="column">
+                        <md-input-container>
+                            <label>Goal</label>
+                            <textarea data-ng-model="travelAgency.goal" id="description" rows=5 md-maxlength="300"></textarea>
+                        </md-input-container>
+                    </div>
+                    <div class="column">
+                        <md-input-container>
+                            <label>Comments</label>
+                            <textarea data-ng-model="travelAgency.notice" id="description" rows=5 md-maxlength="300"></textarea>
+                        </md-input-container>
+                    </div>
                 </div>
-                <div class="column">
-                    <md-input-container>
-                        <label>Comments</label>
-                        <textarea data-ng-model="travelAgency.notice" id="description" rows=5 md-maxlength="300"></textarea>
-                    </md-input-container>
+                <h1>Position & Google ID</h1>
+                <div class="ui two column grid">
+                    <div class="column">
+                        <md-input-container>
+                            <label>Google ID</label>
+                            <input type="text" data-ng-model="travelAgency.googleID">
+                        </md-input-container>
+                    </div>
+                    <div class="column">
+                        <md-input-container>
+                            <label>Coordonates (longitude, latitude)</label>
+                            <input type="number" data-ng-model="travelAgency.coordonates">
+                        </md-input-container>
+                    </div>
                 </div>
-            </div>
-
-            <h1>Position & Google ID</h1>
-            <div class="ui two column grid">
-                <div class="column">
-                    <md-input-container>
-                        <label>Google ID</label>
-                        <input type="text" data-ng-model="travelAgency.googleID">
-                    </md-input-container>
+                <!-- Social Media -->
+                <h1 class="ui header">Social Media</h1>
+                <md-input-container>
+                    <label>
+                        <i class="skype icon"></i>Skype</label>
+                    <input type="text" data-ng-model="travelAgency.skype">
+                </md-input-container>
+                <md-input-container>
+                    <label>
+                        <i class="facebook icon"></i>Facebook</label>
+                    <input type="text" data-ng-model="travelAgency.facebook">
+                </md-input-container>
+                <md-input-container>
+                    <label>
+                        <i class="twitter icon"></i>Twitter</label>
+                    <input type="text" data-ng-model="travelAgency.twitter">
+                </md-input-container>
+                <md-input-container>
+                    <label>
+                        <i class="google plus icon"></i>Google+</label>
+                    <input type="text" data-ng-model="travelAgency.googlePlus">
+                </md-input-container>
+                <md-input-container>
+                    <label>
+                        <i class="linkedin icon"></i>Linkedin</label>
+                    <input type="text" data-ng-model="travelAgency.linkedin">
+                </md-input-container>
+                <md-input-container>
+                    <label>
+                        <i class="youtube icon"></i>Youtube</label>
+                    <input type="text" data-ng-model="travelAgency.youtube">
+                </md-input-container>
+                <md-input-container>
+                    <label>
+                        <i class="vimeo icon"></i>Vimeo</label>
+                    <input type="text" data-ng-model="travelAgency.vimeo">
+                </md-input-container>
+                <md-input-container>
+                    <label>
+                        <i class="instagram icon"></i>instagram</label>
+                    <input type="text" data-ng-model="travelAgency.instagram">
+                </md-input-container>
+                <md-input-container>
+                    <label>
+                        <i class="pinterest icon"></i>pinterest</label>
+                    <input type="text" data-ng-model="travelAgency.pinterest">
+                </md-input-container>
+                <md-input-container>
+                    <label>
+                        <i class="flickr icon"></i>flickr</label>
+                    <input type="text" data-ng-model="travelAgency.flickr">
+                </md-input-container>
+                <h1>Site location & Group</h1>
+                <div class="ui three column grid">
+                    <div class="column">
+                        <md-input-container>
+                            <label>Site</label>
+                            <input type="text" data-ng-model="travelAgency.site">
+                        </md-input-container>
+                    </div>
+                    <div class="column">
+                        <md-input-container>
+                            <label>Travel Agency ID</label>
+                            <input type="text" data-ng-model="travelAgency.siteSharing.travelAgency">
+                        </md-input-container>
+                    </div>
+                    <div class="column">
+                        <md-input-container>
+                            <label>Name</label>
+                            <input type="text" data-ng-model="travelAgency.siteSharing.name">
+                        </md-input-container>
+                    </div>
                 </div>
-                <div class="column">
-                    <md-input-container>
-                        <label>Coordonates (longitude, latitude)</label>
-                        <input type="number" data-ng-model="travelAgency.coordonates">
-                    </md-input-container>
-                </div>
-            </div>
-
-            <!-- Social Media -->
-            <h1 class="ui header">Social Media</h1>
-            <md-input-container>
-                <label><i class="skype icon"></i>Skype</label>
-                <input type="text" data-ng-model="travelAgency.skype">
-            </md-input-container>
-            <md-input-container>
-                <label><i class="facebook icon"></i>Facebook</label>
-                <input type="text" data-ng-model="travelAgency.facebook">
-            </md-input-container>
-            <md-input-container>
-                <label><i class="twitter icon"></i>Twitter</label>
-                <input type="text" data-ng-model="travelAgency.twitter">
-            </md-input-container>
-            <md-input-container>
-                <label><i class="google plus icon"></i>Google+</label>
-                <input type="text" data-ng-model="travelAgency.googlePlus">
-            </md-input-container>
-            <md-input-container>
-                <label><i class="linkedin icon"></i>Linkedin</label>
-                <input type="text" data-ng-model="travelAgency.linkedin">
-            </md-input-container>
-            <md-input-container>
-                <label><i class="youtube icon"></i>Youtube</label>
-                <input type="text" data-ng-model="travelAgency.youtube">
-            </md-input-container>
-            <md-input-container>
-                <label><i class="vimeo icon"></i>Vimeo</label>
-                <input type="text" data-ng-model="travelAgency.vimeo">
-            </md-input-container>
-            <md-input-container>
-                <label><i class="instagram icon"></i>instagram</label>
-                <input type="text" data-ng-model="travelAgency.instagram">
-            </md-input-container>
-            <md-input-container>
-                <label><i class="pinterest icon"></i>pinterest</label>
-                <input type="text" data-ng-model="travelAgency.pinterest">
-            </md-input-container>
-            <md-input-container>
-                <label><i class="flickr icon"></i>flickr</label>
-                <input type="text" data-ng-model="travelAgency.flickr">
-            </md-input-container>
-
-            <h1>Site location & Group</h1>
-            <div class="ui three column grid">
-                <div class="column">
-                    <md-input-container>
-                        <label>Site</label>
-                        <input type="text" data-ng-model="travelAgency.site">
-                    </md-input-container>
-                </div>
-                <div class="column">
-                    <md-input-container>
-                        <label>Travel Agency ID</label>
-                        <input type="text" data-ng-model="travelAgency.siteSharing.travelAgency">
-                    </md-input-container>
-                </div>
-                <div class="column">
-                    <md-input-container>
-                        <label>Name</label>
-                        <input type="text" data-ng-model="travelAgency.siteSharing.name">
-                    </md-input-container>
-                </div>
-            </div>
-
-            <!--                 <div class="ui three column grid">
-            <div class="four wide column">
-            <md-checkbox data-ng-model="travelAgency.travelGroup.belongsToGroup">
-            Belongs to a group
-        </md-checkbox>
-    </div>
+                <!-- <div class="ui three column grid">
     <div class="four wide column">
-    <md-checkbox data-ng-model="travelAgency.travelGroup.isHeadquaters" ng-show="travelAgency.travelGroup.belongsToGroup">
-    Is the headquater
+    <md-checkbox data-ng-model="travelAgency.travelGroup.belongsToGroup">
+    Belongs to a group
+</md-checkbox>
+</div>
+<div class="four wide column">
+<md-checkbox data-ng-model="travelAgency.travelGroup.isHeadquaters" ng-show="travelAgency.travelGroup.belongsToGroup">
+Is the headquater
 </md-checkbox>
 </div>
 <div class="eight wide column" ng-show="travelAgency.travelGroup.belongsToGroup">
@@ -303,7 +293,7 @@
 <input type="text" data-ng-model="travelAgency.travelGroup.branches">
 </md-input-container>
 -->
-<!--                 <h1>General</h1>
+                <!-- <h1>General</h1>
 <div class="ui two column grid stackable">
 <div class="column">
 <md-input-container>
@@ -318,7 +308,7 @@ Online Sales
 </div>
 </div>
 -->
-<!--                 <h1>Contact</h1>
+                <!-- <h1>Contact</h1>
 <div class="ui two column grid stackable">
 <div class="column">
 <div class="ui two column grid">
@@ -391,8 +381,7 @@ Online Sales
 </md-input-container>
 </div>
 </div> -->
-
-<!--                 <h1>Reviews</h1>
+                <!-- <h1>Reviews</h1>
 <div class="ui three column grid">
 <div class="column">
 <md-input-container>
@@ -417,13 +406,13 @@ Online Sales
 <label>Comment</label>
 <textarea data-ng-model="travelAgency.reviews.comment" rows=4 md-maxlength="900"></textarea>
 </md-input-container> -->
-
-<input type="submit" value="Update" class="ui purple button">
-
-<div data-ng-show="error" class="text-danger">
-    <strong data-ng-bind="error"></strong>
-</div>
-</form>
-</div> <!-- .column -->
-</div><!-- .ui page grid -->
+                <input type="submit" value="Update" class="ui purple button">
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </form>
+        </div>
+        <!-- .column -->
+    </div>
+    <!-- .ui page grid -->
 </section>
