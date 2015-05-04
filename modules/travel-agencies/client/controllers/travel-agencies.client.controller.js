@@ -19,8 +19,8 @@ function ($scope, $stateParams, $location, Authentication, TravelAgencies, Count
             return results;
         };
 
-        self.updateSelectedCountry = function (state) {
-            $scope.travelAgency.country = angular.lowercase(state.name);
+        self.updateSelectedCountry = function (country) {
+            $scope.travelAgency.country = angular.lowercase(country.name);
         };
 
         /**
@@ -28,13 +28,12 @@ function ($scope, $stateParams, $location, Authentication, TravelAgencies, Count
          */
         function createFilterFor(query) {
             var lowercaseQuery = angular.lowercase(query);
-            return function filterFn(state) {
-                var name = angular.lowercase(state.name);
+            return function filterFn(country) {
+                var name = angular.lowercase(country.name);
                 return name.indexOf(lowercaseQuery) === 0;
             };
         }
-
-
+        
         // Create new Travel agency
         $scope.create = function () {
             // Create new Travel agency object
@@ -89,7 +88,7 @@ function ($scope, $stateParams, $location, Authentication, TravelAgencies, Count
         };
 
         // Update existing Travel agency
-        $scope.update = function () {
+        self.update = function () {
             var travelAgency = $scope.travelAgency;
 
             travelAgency.$update(function () {
