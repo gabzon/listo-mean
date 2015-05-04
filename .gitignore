@@ -8,4 +8,4 @@ public/lib
 .idea/
 uploads
 modules/users/client/img/profie/uploads
-.settings
+.settings/launch.json

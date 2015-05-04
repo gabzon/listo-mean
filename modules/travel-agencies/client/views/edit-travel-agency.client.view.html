@@ -1,4 +1,4 @@
-<section data-ng-controller="TravelAgenciesController" data-ng-init="findOne()">
+<section data-ng-controller="TravelAgenciesController as vm" data-ng-init="findOne()">
     <md-toolbar class="md-medium-tall md-primary" md-scroll-shrink>
            <span flex></span>
         <div class="ui page grid">
@@ -56,18 +56,13 @@
                     <div class="column">
                         <div class="ui two column grid">
                             <div class="twelve wide column">
-                                <md-autocomplete md-items="item in countryList" md-item-text="item.name" md-floating-label="Country" data-ng-model="travelAgency.country">
+                                <md-autocomplete md-search-text="vm.searchText"
+                                                 md-items="item in vm.querySearch(vm.searchText)"
+                                                 md-item-text="item.name"
+                                                 md-item-display="item.name"
+                                                 md-floating-label="Country"
+                                                 md-selected-item-change="vm.updateSelectedCountry(item)">
                                     <span md-highlight-text="searchText">{{item.name}}</span>
-                                </md-autocomplete>
-                                <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in querySearch(searchText)"
-                                md-item-text="item.name" md-floating-label="Country">
-                                    <md-autocomplete-wrap role="listbox">
-                                        <md-input-container ng-if="floatingLabel">
-                                            <label>Country</label>
-                                            <input type="text" data-ng-model="travelAgency.country">
-                                        </md-input-container>
-                                        <span md-highlight-text="searchText">{{item.name}}</span>
-                                    </md-autocomplete-wrap>
                                 </md-autocomplete>
                             </div>
                             <div class="four wide column">
@@ -90,6 +85,7 @@
                                 </md-input-container>
                             </div>
                         </div>
+                        
                         <!-- Address -->
                         <md-input-container>
                             <label>
